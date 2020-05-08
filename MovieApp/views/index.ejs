@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="http://neo4j-contrib.github.io/developer-resources/language-guides/assets/css/main.css">
+    <title>James Bond Movies</title>
+</head>
+
+<body
+    style="background-image: url('https://cutewallpaper.org/21/007-wallpaper/007-Logo-Wallpaper-70-images.jpg'); background-size: cover; opacity: 0.9;">
+    <div role="navigation" class="navbar navbar-expand-lg navbar-static-top" style="background-color: #000;">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header col-sm-6 col-md-6">
+                    <div class="logo-well">
+                        <img src="https://lelum.pl/wp-content/uploads/2018/09/bond-w.jpg" alt="James Bond" id="logo">
+                    </div>
+                    <div class="navbar-brand">
+                        <div class="font-weight-bold" style="color: #fff;"><strong><em>James Bond Movies</em></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div>
+                        <form method="post" action="/film/search" class="navbar-form" id="search">
+                            <div class="form-group">
+                                <input type="text" value="Skyfall" placeholder="Search for Movie Title"
+                                    class="form-control" name="title">
+                            </div>
+                            <button class="btn btn-light" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">Search Results</div>
+                <table id="results" class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Released</th>
+                            <th>Box office</th>
+                        </tr>
+                        <% films.forEach(function(film){ %>
+                        <tr>
+                            <td><%= film.title %></td>
+                            <td><%= film.year %></td>
+                            <td><%= film.boxOffice %></td>
+                        </tr>
+                        <% }) %>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="title">Details</div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <ul id="crew">
+                            <%if (films.length == 1) { %>
+                            <% films.forEach(function(film){ %>
+                            <li><%= film.title %> is a <%= film.year %> spy movie, which grossed over
+                                $<%= film.boxOffice %> worldwide. </li>
+                            <% }) %>
+                            <% } %>
+                            <%if (actors.length > 0) { %>
+                            <% actors.forEach(function(actor){ %>
+                            <li><%= actor.name %> starring as James Bond.</li>
+                            <% }) %>
+                            <% } %>
+                            <ul>
+                                <%if (actresses.length > 0) { %>
+                                <p style="margin:0; padding:0;"><strong>Bond girls:</strong></p>
+                                <% actresses.forEach(function(actress){ %>
+                                <li><%= actress.name %> as <%= actress.role %> </li>
+                                <% }) %>
+                                <% } %>
+                            </ul>
+                            <%if (directors.length > 0) { %>
+                            <% directors.forEach(function(director){ %>
+                            <li>Directed by <%= director.name %>.</li>
+                            <% }) %>
+                            <% } %>
+                            <ul>
+                                <%if (cars.length > 0) { %>
+                                <p style="margin:0; padding:0;"><strong>Bond cars:</strong></p>
+                                <% cars.forEach(function(car){ %>
+                                <li><%= car.brand %> <%= car.model %> </li>
+                                <% }) %>
+                                <% } %>
+                            </ul>
+                        </ul>
+                        <%if (films.length == 1) { %>
+                        <div>
+                            <form method="get" action="/" class="navbar-form" id="search">
+                                <button class="btn btn-secondary" type="submit" style = "color: #fff; background-color: #000; margin-left: 85%;">See all movies</button>
+                            </form>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="neo4j-web.min.js"></script>
+</body>
+
+</body>
+
+</html>
