@@ -1,4 +1,4 @@
-# Neo4j vs MySQL
+# Neo4j vs Microsoft SQL Server
 
 Comparison of the implementation and usage of the graph database with Neo4J and Microsoft SQL Server.
 
