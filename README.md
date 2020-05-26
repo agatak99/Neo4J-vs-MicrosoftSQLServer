@@ -2,7 +2,7 @@
 
 Comparison of the implementation and usage of the graph database with Neo4J and Microsoft SQL Server.
 
-[Documentation] (https://github.com/agatak99/Neo4J-vs-MicrosoftSQLServer/blob/master/Documentation.pdf_
+[Documentation](https://github.com/agatak99/Neo4J-vs-MicrosoftSQLServer/blob/master/Documentation.pdf_)
 
 ### Database
 
