@@ -1,5 +1,7 @@
 # Neo4j vs MySQL
 
+## Documentation
+
 Comparison of the implementation and usage of the graph database with Neo4J and MySQL Server.
 
 ### Database
